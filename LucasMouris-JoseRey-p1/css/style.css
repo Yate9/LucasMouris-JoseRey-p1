@@ -1,0 +1,645 @@
+/* VARIABLES: paleta de la guia de estilos */
+:root {
+  --negro: #0d0d0d;
+  --gris: #2e2e2e;
+  --dorado: #e6b800;
+  --amarillo: #ffd21f;
+  --crema: #fff3b0;
+  --blanco: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--negro);
+  color: var(--blanco);
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* FLEX: cabecera con logo a la izquierda y menu a la derecha, centrados en vertical */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 20px 5%;
+  background-color: var(--negro);
+  border-bottom: 1px solid var(--amarillo);
+}
+
+/* FLEX: icono y texto del logo en fila */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--blanco);
+}
+
+/* FLEX: centra el emoji dentro de la caja del logo */
+.logo-icono {
+  width: 42px;
+  height: 42px;
+  background-color: var(--amarillo);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.logo-texto {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+}
+
+.logo-texto span {
+  color: var(--amarillo);
+}
+
+/* FLEX: enlaces del menu en horizontal */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--blanco);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: var(--amarillo);
+}
+
+/* FLEX: centra el emoji dentro del circulo de login */
+.login-icono {
+  width: 40px;
+  height: 40px;
+  margin-left: 1rem;
+  border: 1px solid var(--blanco);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.login-icono:hover {
+  border-color: var(--amarillo);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 5%;
+  text-align: center;
+  background-color: var(--negro);
+}
+
+.hero-imagen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 13, 13, 0.85);
+  z-index: 1;
+}
+
+.hero > *:not(.hero-imagen) {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-etiqueta {
+  display: inline-block;
+  background-color: var(--negro);
+  border: 1px solid var(--amarillo);
+  color: var(--amarillo);
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-titulo {
+  font-size: 3.5rem;
+  line-height: 1;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-titulo span {
+  color: var(--amarillo);
+}
+
+.hero-texto {
+  font-size: 1.1rem;
+  color: var(--crema);
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+}
+
+/* FLEX: boton del hero centrado */
+.hero-botones {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.boton-principal {
+  background-color: var(--amarillo);
+  color: var(--negro);
+  padding: 16px 40px;
+  border-radius: 4px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+.boton-principal:hover {
+  background-color: var(--dorado);
+}
+
+.boton-secundario {
+  border: 1px solid var(--blanco);
+  color: var(--blanco);
+  padding: 16px 40px;
+  border-radius: 4px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+.boton-secundario:hover {
+  border-color: var(--amarillo);
+  color: var(--amarillo);
+}
+
+/* GRID: 4 columnas iguales para las estadisticas (2 en movil) */
+.hero-estadisticas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.estadistica {
+  text-align: center;
+}
+
+.estadistica-numero {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: var(--amarillo);
+}
+
+.estadistica-texto {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--crema);
+  text-transform: uppercase;
+}
+
+section {
+  padding: 80px 5%;
+}
+
+.seccion-etiqueta {
+  display: inline-block;
+  color: var(--amarillo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.seccion-titulo {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.seccion-texto {
+  color: var(--crema);
+  font-size: 1rem;
+  max-width: 550px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+/* FLEX: tarjetas y macros lado a lado, se apilan al no caber */
+.nutricion-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+/* GRID: las tarjetas de nutricion en una columna con separacion */
+.tarjetas {
+  flex: 1 1 400px;
+  display: grid;
+  gap: 1.2rem;
+  align-content: start;
+}
+
+/* FLEX: icono a la izquierda y texto a la derecha */
+.tarjeta {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  background-color: var(--gris);
+  border-left: 3px solid var(--amarillo);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+/* FLEX: centra el emoji dentro de su caja */
+.tarjeta-icono {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  background-color: var(--negro);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.tarjeta h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 1px;
+}
+
+.tarjeta p {
+  color: var(--crema);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.macros {
+  flex: 1 1 350px;
+  background-color: var(--gris);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.macros-titulo {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.macros-fila {
+  margin-bottom: 1.2rem;
+}
+
+/* FLEX: nombre del macro a la izquierda y porcentaje a la derecha */
+.macros-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.macros-nombre {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.macros-porcentaje {
+  color: var(--amarillo);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.macros-porcentaje.azul {
+  color: var(--dorado);
+}
+
+.macros-porcentaje.verde {
+  color: var(--crema);
+}
+
+.macros-barra {
+  height: 8px;
+  background-color: var(--negro);
+  border-radius: 30px;
+}
+
+.macros-relleno {
+  height: 100%;
+  border-radius: 30px;
+  background-color: var(--amarillo);
+}
+
+.macros-relleno.proteina {
+  width: 40%;
+}
+
+.macros-relleno.azul {
+  width: 35%;
+  background-color: var(--dorado);
+}
+
+.macros-relleno.verde {
+  width: 25%;
+  background-color: var(--crema);
+}
+
+.calorias {
+  margin-top: 2rem;
+  background-color: var(--negro);
+  border: 1px solid var(--amarillo);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.calorias-numero {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: var(--amarillo);
+}
+
+.calorias-texto {
+  color: var(--crema);
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* GRID: 2 columnas iguales para las tarjetas de info (1 en movil pequeno) */
+.info-extra {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.info-tarjeta {
+  background-color: var(--negro);
+  border-radius: 8px;
+  padding: 1.2rem;
+}
+
+.info-etiqueta {
+  font-size: 0.75rem;
+  color: var(--crema);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.info-valor {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+}
+
+.info-valor.amarillo {
+  color: var(--amarillo);
+}
+
+footer {
+  background-color: var(--negro);
+  border-top: 1px solid var(--gris);
+  padding: 50px 5% 25px 5%;
+}
+
+/* FLEX: marca y columna de secciones lado a lado */
+.footer-arriba {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--gris);
+  margin-bottom: 1.5rem;
+}
+
+.footer-marca {
+  flex: 2 1 280px;
+}
+
+.footer-marca p {
+  color: var(--crema);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin: 1rem 0 1.5rem 0;
+  max-width: 280px;
+}
+
+/* FLEX: iconos de redes sociales en fila */
+.footer-redes {
+  display: flex;
+  gap: 10px;
+}
+
+/* FLEX: centra el emoji dentro de cada icono de red */
+.footer-red {
+  width: 38px;
+  height: 38px;
+  background-color: var(--gris);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blanco);
+  font-size: 1rem;
+}
+
+.footer-columna {
+  flex: 1 1 150px;
+}
+
+.footer-columna h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amarillo);
+  margin-bottom: 1rem;
+}
+
+.footer-columna ul {
+  list-style: none;
+}
+
+.footer-columna ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-columna ul li a {
+  color: var(--crema);
+  font-size: 0.9rem;
+}
+
+.footer-columna ul li a:hover {
+  color: var(--blanco);
+}
+
+/* FLEX: copyright a la izquierda y enlaces legales a la derecha */
+.footer-abajo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-abajo p {
+  color: var(--crema);
+  font-size: 0.85rem;
+}
+
+/* FLEX: enlaces legales en fila */
+.footer-enlaces {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-enlaces a {
+  color: var(--crema);
+  font-size: 0.85rem;
+}
+
+.footer-enlaces a:hover {
+  color: var(--amarillo);
+}
+
+/* RESPONSIVE: tablet */
+@media (max-width: 900px) {
+  section {
+    padding: 60px 5%;
+  }
+
+  .hero {
+    padding: 60px 5%;
+  }
+
+  .seccion-titulo {
+    font-size: 2.3rem;
+  }
+
+  .nutricion-contenido {
+    gap: 2rem;
+  }
+}
+
+/* RESPONSIVE: movil (el GRID de estadisticas pasa a 2 columnas, el FLEX de la cabecera se centra) */
+@media (max-width: 700px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .login-icono {
+    margin-left: 0;
+  }
+
+  .hero {
+    padding: 50px 5%;
+  }
+
+  .hero-titulo {
+    font-size: 2.5rem;
+  }
+
+  .hero-texto {
+    font-size: 1rem;
+  }
+
+  .hero-estadisticas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seccion-titulo {
+    font-size: 2rem;
+  }
+
+  .macros-titulo {
+    font-size: 1.3rem;
+  }
+
+  .footer-abajo {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-enlaces {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+/* RESPONSIVE: movil pequeno (el GRID de info-extra pasa a 1 columna) */
+@media (max-width: 400px) {
+  .info-extra {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-texto {
+    font-size: 1.5rem;
+  }
+
+  .hero-titulo {
+    font-size: 2rem;
+  }
+
+  .boton-principal {
+    padding: 14px 24px;
+  }
+
+  .tarjeta {
+    padding: 1rem;
+    gap: 0.8rem;
+  }
+
+  .tarjeta-icono {
+    width: 42px;
+    height: 42px;
+  }
+}
